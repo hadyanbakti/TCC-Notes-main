@@ -6,7 +6,7 @@ steps:
 
   # 2. Push ke Container Registry / Artifact Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/modes-backend-hadyan:${SHORT_SHA}"]
+    args: ["push", "gcr.io/$PROJECT_ID/nodes-backend-hadyan:${SHORT_SHA}"]
 
   # 3. Deploy ke Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"

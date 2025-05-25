@@ -20,8 +20,6 @@ steps:
         "gcr.io/$PROJECT_ID/nodes-backend-hadyan:${SHORT_SHA}",
         "--timeout",
         "1000s",
-        "--port",
-        "5000",
         "--region",
         "us-central1",
         "--allow-unauthenticated",

@@ -18,6 +18,8 @@ steps:
         "nodes-backend-hadyan",
         "--image",
         "gcr.io/$PROJECT_ID/nodes-backend-hadyan:${SHORT_SHA}",
+        "--port"
+        "5000"
         "--timeout",
         "1000s",
         "--region",

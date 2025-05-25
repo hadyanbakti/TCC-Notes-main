@@ -1,7 +1,7 @@
 steps:
   # 1. Build Docker image untuk backend
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "--cache-from", "gcr.io/$PROJECT_ID/backend-havas", "-t", "gcr.io/$PROJECT_ID/nodes-backend-hadyan:${SHORT_SHA}", "."]
+    args: ["build", "--cache-from", "gcr.io/$PROJECT_ID/nodes-backend-hadyan", "-t", "gcr.io/$PROJECT_ID/nodes-backend-hadyan:${SHORT_SHA}", "."]
     dir: "backend"
 
   # 2. Push ke Container Registry / Artifact Registry
@@ -19,7 +19,7 @@ steps:
         "--image",
         "gcr.io/$PROJECT_ID/nodes-backend-hadyan:${SHORT_SHA}",
         "--timeout",
-        "10000s",
+        "1000s",
         "--region",
         "us-central1",
         "--allow-unauthenticated",

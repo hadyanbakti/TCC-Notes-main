@@ -1,0 +1,135 @@
+# =================== PRODUCTION SERVER ===================
+# Step 1: Register a new user
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "123456",
+    "confirm_password": "123456"
+}
+
+### Step 2: Login with the registered user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "123456"
+}
+
+### Step 3: Get all users (requires access token from login)
+GET http://localhost:5000/getusers
+Authorization: Bearer 44b526757c943aa26435cbc9dc9dd3033125872db04eb62c7c5f83a4e88ff7a3
+
+### Step 4: Create a new note (requires access token)
+POST http://localhost:5000/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc0ODE5MDAyOSwiZXhwIjoxNzQ4MTkwOTI5fQ.3OYowJFKD-KqIMM14fAfZlXhuHfQboBnJyc4SmWsCuc
+
+{
+    "title": "Test Note",
+    "note": "This is a test note content"
+}
+
+### Step 5: Get user's notes (requires access token)
+GET http://localhost:5000/notes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc0ODE1NDg1NSwiZXhwIjoxNzQ4MTU0OTE1fQ.3tHdPNUIP51mTHw1os8SHsfZ-Sz8Sc1tRpni3VP79Vw
+
+### Step 6: Update a note (requires access token)
+PUT https://backend-havas-352792921038.us-central1.run.app/notes/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc0ODE1NDc4NywiZXhwIjoxNzQ4MTU0ODQ3fQ.nTdjHNL2PLJlE6vafHcylk2IY1Ugwq4G04G90zEQXHY
+
+{
+    "title": "Updated Test Note",
+    "note": "This is the updated content"
+}
+
+### Step 7: Delete a note (requires access token)
+DELETE https://backend-havas-352792921038.us-central1.run.app/notes/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc0ODE1NDc4NywiZXhwIjoxNzQ4MTU0ODQ3fQ.nTdjHNL2PLJlE6vafHcylk2IY1Ugwq4G04G90zEQXHY
+
+### Step 8: Refresh Token (when access token expires)
+GET https://backend-havas-352792921038.us-central1.run.app/token
+
+### Step 9: Logout
+DELETE https://backend-havas-352792921038.us-central1.run.app/logout
+
+
+# =================== LOCALHOST SERVER ===================
+### Step 1: Register a new user
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "username": "testuser2",
+    "password": "123456",
+    "confirm_password": "123456"
+}
+
+### Step 2: Login with the registered user
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "123456"
+}
+
+### Step 3: Get all users (requires access token from login)
+GET http://localhost:5000/getusers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc0ODE1OTY0OSwiZXhwIjoxNzQ4MTU5Njc5fQ.A4caPQjbcSruOgq-aZfRU_MA9yIhxFiFrUBqMG3OLB0
+
+### Step 4: Create a new note (requires access token)
+POST http://localhost:5000/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZXN0dXNlcjIiLCJpYXQiOjE3NDgxNjA5MzUsImV4cCI6MTc0ODE2MDk2NX0.9jp63e793HJCKMb3Jq-098098Jcha9ZAw-dS9h3M8bU
+
+{
+    "title": "Test Note Local user2",
+    "note": "This is a test note content in localhost"
+}
+
+### Step 5: Get user's notes (requires access token)
+GET http://localhost:5000/notes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZXN0dXNlcjIiLCJpYXQiOjE3NDgxNjA5MzUsImV4cCI6MTc0ODE2MDk2NX0.9jp63e793HJCKMb3Jq-098098Jcha9ZAw-dS9h3M8bU
+
+### Step 6: Update a note (requires access token)
+PUT http://localhost:5000/notes/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc0ODE2MTA2MywiZXhwIjoxNzQ4MTYxMDkzfQ.kCYt24IBcLggkWxRWrdKW8qkCcU9wcqgS0Qki3ts75I
+
+{
+    "title": "Updated Local Note 2",
+    "note": "This is the updated content in localhost"
+}
+
+### Step 7: Delete a note (requires access token)
+DELETE http://localhost:5000/notes/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTc0ODE2MTExMywiZXhwIjoxNzQ4MTYxMTQzfQ.ERPNoC6ksdEpVqvpNJuIcmiKBctxo4TO6X-P4WTUNHo
+
+### Step 8: Refresh Token (when access token expires)
+GET http://localhost:5000/token
+
+### Step 9: Logout
+DELETE http://localhost:5000/logout
+
+# Test Login to get fresh token
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "testuser",
+    "password": "123456"
+}
+
+### After getting the token from above, use it here to create note
+POST http://localhost:5000/notes
+Content-Type: application/json
+Authorization: Bearer <paste_access_token_here>
+
+{
+    "title": "Test Note",
+    "note": "This is a test note content"
+}

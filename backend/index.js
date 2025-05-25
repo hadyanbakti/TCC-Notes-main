@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 
 const corsOptions = {
  origin: [
-    "http://localhost:3000",
+    "http://localhost:5000",
     "https://notes-backend-hadyan-436215937980.us-central1.run.app"
   ], 
   credentials: true, 

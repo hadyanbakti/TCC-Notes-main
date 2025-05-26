@@ -1,8 +1,6 @@
-FROM node:20-alpine
+FROM node:20-slim   # Or another appropriate node base image
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --production 
-# --production = tanpa devDepedencies
 COPY . .
+RUN npm install
 EXPOSE 7000
-CMD ["node", "index.js"]
+CMD ["npm", "start"]

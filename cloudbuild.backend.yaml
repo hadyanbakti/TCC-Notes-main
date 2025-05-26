@@ -28,7 +28,15 @@ steps:
         "--set-env-vars",
         "ACCESS_TOKEN_SECRET=${_ACCESS_TOKEN_SECRET},REFRESH_TOKEN_SECRET=${_REFRESH_TOKEN_SECRET},DB_HOST=${_DB_HOST},DB_NAME=${_DB_NAME},DB_PASSWORD=${_DB_PASSWORD},DB_USERNAME=${_DB_USERNAME}"
       ]
-
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        gcloud beta run services add-iam-policy-binding notes-be-hadyan \
+          --member="allUsers" \
+          --role="roles/run.invoker" \
+          --region=us-central1
 # Log hanya akan disimpan di Google Cloud Logging
 options:
   logging: CLOUD_LOGGING_ONLY

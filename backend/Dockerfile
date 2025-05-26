@@ -1,4 +1,4 @@
-FROM node:20-slim   # Or another appropriate node base image
+FROM node:20-alpine   # Or another appropriate node base image
 WORKDIR /app
 COPY . .
 RUN npm install

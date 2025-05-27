@@ -4,5 +4,5 @@ COPY package*.json ./
 RUN npm install --production 
 # --production = tanpa devDepedencies
 COPY . .
-EXPOSE 8000
+EXPOSE 5000
 CMD ["node", "index.js"]

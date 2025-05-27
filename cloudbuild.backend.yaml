@@ -15,7 +15,7 @@ steps:
       [
         "run",
         "deploy",
-        "nodes-backend-hadyan",
+        "backend-hadyan",
         "--image",
         "gcr.io/$PROJECT_ID/backend-hadyan",
         "--timeout",
